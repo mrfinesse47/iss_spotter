@@ -10,9 +10,11 @@
 //   console.log("It worked! Returned IP:", ip);
 // });
 
-const { fetchMyLocation } = require("./iss");
+//50.92.242.56
 
-fetchMyLocation("", (error, location) => {
+const { fetchCoordsByIP } = require("./iss");
+
+fetchCoordsByIP("50.92.242.56", (error, location) => {
   if (error) {
     console.log("It didn't work!", error);
     return;
