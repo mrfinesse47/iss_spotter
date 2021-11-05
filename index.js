@@ -12,13 +12,24 @@
 
 //50.92.242.56
 
-const { fetchCoordsByIP } = require("./iss");
+// const { fetchCoordsByIP } = require("./iss");
 
-fetchCoordsByIP("50.92.242.56", (error, location) => {
+// fetchCoordsByIP("50.92.242.56", (error, location) => {
+//   if (error) {
+//     console.log("It didn't work!", error);
+//     return;
+//   }
+
+//   console.log("It worked! Returned my location:", location);
+// });
+
+const { fetchISSFlyOverTimes } = require("./iss");
+
+fetchISSFlyOverTimes("50.92.242.56", (error, response) => {
   if (error) {
     console.log("It didn't work!", error);
     return;
   }
 
-  console.log("It worked! Returned my location:", location);
+  console.log("It worked! Returned data:", response);
 });

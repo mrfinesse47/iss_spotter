@@ -32,25 +32,48 @@ const request = require("request");
 //   // use request to fetch IP address from JSON API
 // };
 
-const fetchCoordsByIP = (ipAddressV4, callback) => {
-  const url = `https://api.freegeoip.app/json/${ipAddressV4}?apikey=${API_KEY}`;
-  request(url, (error, response, body) => {
-    if (error) {
-      callback(Error(error), null);
-      return;
-    }
-    // if non-200 status, assume server error
-    if (response.statusCode !== 200) {
-      const msg = `Status Code ${response.statusCode} when fetching coordinates for IP.`;
-      callback(Error(msg), null);
-      return;
-    }
+// const fetchCoordsByIP = (ipAddressV4, callback) => {
+//   const url = `https://api.freegeoip.app/json/${ipAddressV4}?apikey=${API_KEY}`;
+//   request(url, (error, response, body) => {
+//     if (error) {
+//       callback(Error(error), null);
+//       return;
+//     }
+//     // if non-200 status, assume server error
+//     if (response.statusCode !== 200) {
+//       const msg = `Status Code ${response.statusCode} when fetching coordinates for IP.`;
+//       callback(Error(msg), null);
+//       return;
+//     }
 
-    const location = {
-      latitude: JSON.parse(body).latitude,
-      longitude: JSON.parse(body).longitude,
-    };
-    callback(null, location);
-  });
-};
-module.exports = { fetchCoordsByIP };
+//     const location = {
+//       latitude: JSON.parse(body).latitude,
+//       longitude: JSON.parse(body).longitude,
+//     };
+//     callback(null, location);
+//   });
+// };
+
+// https://iss-pass.herokuapp.com/json/?lat=YOUR_LAT_INPUT_HERE&lon=YOUR_LON_INPUT_HERE
+
+// const fetchISSFlyOverTimes = (coords, callback) => {
+//   coords = { latitude: 54.5154, longitude: -128.6042 };
+//   const url = `https://iss-pass.herokuapp.com/json/?lat=${coords.latitude}&lon=${coords.longitude}`;
+//   request(url, (error, response, body) => {
+//     if (error) {
+//       callback(Error(error), null);
+//       return;
+//     }
+//     // if non-200 status, assume server error
+//     if (response.statusCode !== 200) {
+//       const msg = `Status Code ${response.statusCode} when fetching iss pass times: ${body}.`;
+//       callback(Error(msg), null);
+//       return;
+//     }
+//     // console.log(response);
+//     const issLocations = JSON.parse(body).response;
+//     callback(null, issLocations);
+//   });
+// };
+
+module.exports = {};
